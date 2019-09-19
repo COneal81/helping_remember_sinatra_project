@@ -8,4 +8,8 @@ class CreateMemories < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
+
+  def change 
+
+  end 
 end
