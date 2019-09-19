@@ -10,6 +10,6 @@ class CreateMemories < ActiveRecord::Migration
   end
 
   def change 
-
+    add_column :memories, :user_id, :integer
   end 
 end
