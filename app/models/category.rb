@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
-    belongs_to :memories
-    belongs_to :users
+    has_many :users, through: :memories
+    has_many :memory_categories
+    has_many :users, through: :memory_categories
 end
