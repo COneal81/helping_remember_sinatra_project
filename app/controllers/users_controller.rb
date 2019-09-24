@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
   # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
+  get "/signup" do
+    redirect to '/memories' if logged_in?
+    erb :"/users/signup.html"
   end
+
+  post '/signup' do 
+
 
   # GET: /users/new
   get "/users/new" do

@@ -13,9 +13,22 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    flash[:notice] = "Hooray, Flash is working!"
-    erb :'users/index.html'
+    
+    erb :'/index.html'
   end
 
+
+  helpers do 
+
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      User.find_by(session[:user_id])
+    end
+
+    
+  end
 
 end
