@@ -1,11 +1,22 @@
 <h1> Helping Remember...</h1>
 <h2>where memories are kept alive!</h2>
-    <br>
-    <br>
-<h3> Create an account</h3>
     
-
-
+    
+<h3> Create an account</h3>
+    <form method="POST" action="/signup"> 
+        <label><strong> Username: *</strong></label><br>
+        <input type="text" name="username" required><br><br>
+    
+        <label><strong> Email: * </strong></label><br>
+        <input type="text" name="email" required><br><br>
+    
+        <label><strong> Password * </strong></label><br>
+        <input type="password" name="password" required><br>
+        <h6> *Fields are Required</h6>
+        <br>
+       <input class="btn btn-info" type="submit" value="Create your Helping Remember account">
+    </form>
+       
     <br>
     <br>
 <h5>Already have an account? <a href="/users/login"> Log In </h5>
