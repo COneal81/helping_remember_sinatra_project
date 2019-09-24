@@ -4,10 +4,21 @@ class UsersController < ApplicationController
   get "/signup" do
     redirect to '/memories' if logged_in?
     erb :"/users/signup.html"
+    end
   end
 
   post '/signup' do 
+  
 
+
+    get "/login" do
+      redirect to '/memories' if logged_in?
+      erb :"users/login.html"
+     
+      
+    end
+
+    
 
   # GET: /users/new
   get "/users/new" do
@@ -39,3 +50,4 @@ class UsersController < ApplicationController
     redirect "/users"
   end
 end
+

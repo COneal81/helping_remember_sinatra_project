@@ -17,7 +17,6 @@ class ApplicationController < Sinatra::Base
     erb :'/index.html'
   end
 
-
   helpers do 
 
     def logged_in?
@@ -28,7 +27,7 @@ class ApplicationController < Sinatra::Base
       User.find_by(session[:user_id])
     end
 
-    
+
   end
 
 end
