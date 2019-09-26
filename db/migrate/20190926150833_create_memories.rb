@@ -7,6 +7,8 @@ class CreateMemories < ActiveRecord::Migration
       t.string :image_url
       t.integer :user_id
       t.integer :category_id
+
+      t.timestamps null: false
     end
   end
 end
