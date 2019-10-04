@@ -9,9 +9,11 @@ use Rack::MethodOverride
 
 #Application is the controller class that inherits from Sinatra::Base, which is a ruby class.  It gives it 
 # a rack compatable interface.
-run ApplicationController
+
 
 use CategoriesController
 use MemoriesController
 use UsersController
+
+run ApplicationController
 

@@ -16,22 +16,14 @@
   <body>
     <div class="wrapper">
 
-       
-
-        <% flash.keys.each do |type| %>
-        <div data-alert class="flash <%= type %> alert-box radius">
-          <%= flash[type] %>
-          <a href="#" class="close">&times;</a>
-        </div>
-
-         <div class="nav">
+       <div class="nav">
             <% if logged_in? %>
-              <a href="/memories/show"> Home </a>
+              <a href="/memories"> Memories </a>
               <a href="/memories/new"> Create a Memory </a>
-              <a href="/logout"> Logout </a>
-            <%end%>
-        <% end %>
-
+              <a href="/logout"> Log Out </a>
+            <% end %>
+        </div>  
+               
         <%= yield %>
 
       <footer class="branding">

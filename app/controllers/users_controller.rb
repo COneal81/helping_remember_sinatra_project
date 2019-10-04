@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   
   get '/login' do
-    if logged_in?
-       redirect to "/users/#{current_user.id}"
-    else  
+    # if logged_in?
+    #    redirect to "/users/#{current_user.id}"
+    # else  
       erb :"users/login.html"
-    end
+    # end
   end
 
   post '/login' do 
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   #this renders the show page (show route)
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
+    @memory = Memory.all
     erb :'/memories/show.html' 
   end
 

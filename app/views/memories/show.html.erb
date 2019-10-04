@@ -1,8 +1,11 @@
-<h1> Your Memories</h1>
+<h1> Welcome <%= @user.username %></h1>
 
+<br>
+<br>
+<h3>Your Memories</h3>
+<br>
 
-
-
-
-
-
+<%@memory.each do |mem|%>
+<h4> <a href="/memories/<%= mem.id%>"> <%= mem.title%> </a></h4>
+<%= mem.image_url%>
+<%end%>
