@@ -1,22 +1,34 @@
 class MemoriesController < ApplicationController
 
-  # GET: /memories
+#READ (index erb)
   get "/memories" do
+    if logged_in?
+    @memory = Memory.all
     erb :"/memories/index.html"
+    
+  else 
+    redirect to '/login'
+  end
   end
 
-  # GET: /memories/new
+
+#CREATE (new erb)
+        #This route will send the user to a form to fill out to create a new memory.
   get "/memories/new" do
+    if logged_in?
     erb :"/memories/new.html"
   end
 
-  # POST: /memories
-  post "/memories" do
-    redirect "/memories"
+        #This receives the params from the user filling out the form and create a new instance.
+   post "/memories" do
+      @memories = Memory.create(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], user_id: current_user.id)
+      
+     
   end
 
-  # GET: /memories/5
+  #Read (show erb)
   get "/memories/:id" do
+    @memories = Memory.find(params[:id])
     erb :"/memories/show.html"
   end
 

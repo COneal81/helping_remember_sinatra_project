@@ -1,22 +1,32 @@
-<h1> Helping Remember...</h1>
-<h2>where memories are kept alive!</h2>
-    
-    
-<h3> Create an account</h3>
-    <form method="POST" action="/signup"> 
-        <label for="username"><strong> Username: *</strong></label><br>
-        <input type="text" name="username" value="" required><br><br>
-    
-        <label for="email"><strong> Email: * </strong></label><br>
-        <input type="text" name="email" value="" required><br><br>
-    
-        <label for="password"><strong> Password * </strong></label><br>
-        <input type="password" name="password" value="" required><br>
-        <h6> *Fields are Required</h6>
-        <br>
-       <input class="btn btn-info" type="submit" value="Create your Helping Remember account">
+<h1> Helping Remember... </h1>
+<h2> where memories are kept alive! </h2>
+  <%# 
+    This for is going to take in these 3 attributes from the user to 
+    the post route.
+    "username"
+    "email"
+    "password" %>
+<br>
+<h3> Create an Account</h3>
+
+    <form action="/signup" method="POST">
+        <label for="username"><strong> Username: * </strong></label>
+        <input type="text" name="username" value="" id="username" required><br><br>
+        
+        <label for="email"><strong> Email: *</strong></label>
+        <input type="text" name="email" value="" id="email" required><br><br>
+
+        <label for="password"><strong> Password: * </strong></label>
+        <input type="password" name="password" value="" id="password" required><br><br>
+
+        <h5> *Fields are Required</h5>
+
+        <input class="btn btn-info" type="submit" value="Create your Helping Remeber account">
     </form>
-       
-    <br>
-    <br>
-<h5>Already have an account? <a href="/users/login"> Log In </h5>
+        <br>
+        <br>
+        <br>
+<%# This will allow the user who has an account to be taken to the login page. %>
+<h5> Already have an account? <a href="/users/login"> Login </h5>
+  
+  

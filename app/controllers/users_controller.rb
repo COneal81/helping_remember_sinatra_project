@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # #     #then we would start a session, which is what actually logs the user into the app.
           session[:user_id] = @user.id
   # #     #if successful, flash a message that welcomes the user
-          flash[:message] = "Welcome #{@user.username} to Helping Remember"
+           flash[:message] = "Welcome #{@user.username} to Helping Remember"
   # #     #redirect to their account/ users/show
           redirect "/users/#{@user.id}"
      else
@@ -31,27 +31,29 @@ class UsersController < ApplicationController
       
      end
   end
-  
- 
    
   #this is the show route
-    get '/users/:id' do
-      # user = User.find_by(id: params[:id])
-      'This is the users show page'   
-    end
-    
-
-      
+  get '/users/:id' do
+    @user = User.find_by(id: params[:id])
+    erb :'/memories/show.html' 
+  end
      # renders the signup from in views
-  get "/signup" do
-    # redirect to '/memories' if logged_in?
-    erb :"/users/signup.html"
-  end
-
-  post '/signup' do 
-    erb :"/users/signup.html"
-  end
   
+  get '/signup' do 
+    erb :'/users/signup.html'
+  end
+ 
+  post '/signup' do 
+    # {"username"=>"hi", "email"=>"hi@hi.com", "password"=>"hi"}
+    
+   #create a new user
+   @user = User.create(params)
+  #  binding.pry
+   #start a new session
+   session[:user_id] = @user.id
+   #redirect the user to their show page
+   redirect "/users/#{@user.id}"
+  end
 
   get '/logout' do 
     if logged_in?
