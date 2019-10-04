@@ -6,9 +6,9 @@ class MemoriesController < ApplicationController
     @memory = Memory.all
     erb :"/memories/index.html"
     
-  else 
-    redirect to '/login'
-  end
+    else 
+      redirect to '/login'
+    end
   end
 
 
@@ -17,6 +17,7 @@ class MemoriesController < ApplicationController
   get "/memories/new" do
     if logged_in?
     erb :"/memories/new.html"
+    end
   end
 
         #This receives the params from the user filling out the form and create a new instance.

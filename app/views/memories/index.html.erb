@@ -1,6 +1,6 @@
 <h1>Your Memories</h1>
 <%@memory.each do |mem|%>
-<h3> <a href="/memories/<%= mem.id%>"><%= mem.title%> </a></h3>
+<h3> <a href="/memories/<%= mem.id%>"> <%= mem.title%> </a></h3>
 <%= mem.image_url%>
 <%end%>
 

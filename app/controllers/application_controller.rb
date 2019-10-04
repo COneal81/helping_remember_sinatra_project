@@ -14,7 +14,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    
     erb :'/welcome.html'
   end
 
