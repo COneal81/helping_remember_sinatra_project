@@ -2,6 +2,7 @@ class MemoriesController < ApplicationController
 
 #READ (index erb)
   get "/memories" do
+    @user = User.find_by(id: params[:id])
     @memory = Memory.all
     erb :"/memories/index.html"
   end

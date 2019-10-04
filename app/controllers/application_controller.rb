@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
 #These methods are helpers to determine if a user is logged in.
   helpers do 
     def logged_in?
-      !!session
+      !!current_user
     end
 
     def current_user
