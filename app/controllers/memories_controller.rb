@@ -2,13 +2,8 @@ class MemoriesController < ApplicationController
 
 #READ (index erb)
   get "/memories" do
-    if logged_in?
     @memory = Memory.all
     erb :"/memories/index.html"
-    
-    else 
-      redirect to '/login'
-    end
   end
 
 
@@ -22,14 +17,15 @@ class MemoriesController < ApplicationController
 
         #This receives the params from the user filling out the form and create a new instance.
    post "/memories" do
-      @memories = Memory.create(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], user_id: current_user.id)
+      @memory = Memory.create(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], user_id: current_user.id)
       
      
   end
 
   #Read (show erb)
   get "/memories/:id" do
-    @memories = Memory.find(params[:id])
+    @memory = Memory.find(params[:id])
+    #renders the memory
     erb :"/memories/show.html"
   end
 

@@ -16,19 +16,20 @@
   <body>
     <div class="wrapper">
 
+       
+
         <% flash.keys.each do |type| %>
         <div data-alert class="flash <%= type %> alert-box radius">
           <%= flash[type] %>
           <a href="#" class="close">&times;</a>
         </div>
 
-        <div class="nav">
-          <%if logged_in? %>
-            <a href="/show"> Home </a>
-            <a href="/memories/new"> Create a Memory </a>
-            <a href="/logout"> Logout </a>
-          <%end%>
-
+         <div class="nav">
+            <% if logged_in? %>
+              <a href="/memories/show"> Home </a>
+              <a href="/memories/new"> Create a Memory </a>
+              <a href="/logout"> Logout </a>
+            <%end%>
         <% end %>
 
         <%= yield %>

@@ -38,7 +38,6 @@ class UsersController < ApplicationController
   #this renders the show page (show route)
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
-    @memory = Memory.all
     erb :'/memories/show.html' 
   end
 
@@ -49,7 +48,7 @@ class UsersController < ApplicationController
   end
  
   post '/signup' do 
-    # {"username"=>"hi", "email"=>"hi@hi.com", "password"=>"hi"}
+    
     
    #create a new user
    @user = User.create(params)
