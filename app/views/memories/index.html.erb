@@ -2,7 +2,7 @@
 <h1>All Your Memories</h1>
     <br>
 
-    <%@user.memories.each.with_index(1) do |mem, index|%>
+    <%@memory.each.with_index(1) do |mem, index|%>
     <h3> <a href="/memories/<%= mem.id%>"> <%= index %>. <%= mem.title%> </a></h3>
     <img src="<%=mem.image_url%>" alt="<%= mem.title %> photo" height="100" width="100">
         <br>

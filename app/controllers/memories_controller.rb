@@ -2,9 +2,14 @@ class MemoriesController < ApplicationController
 
 #READ (index erb)
   get "/memories" do
-    @user = User.find_by(id: params[:id])
-    @memory = Memory.all
+    if logged_in?
+      @memory = Memory.all
     erb :"/memories/index.html"
+   
+    else  
+
+      redirect to '/login'
+    end
   end
 
 
@@ -20,7 +25,7 @@ class MemoriesController < ApplicationController
    post "/memories" do
       @memory = Memory.create(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], user_id: current_user.id)
       
-     
+      redirect to "/memories/#{memory.id}"
   end
 
   #Read (show erb)
