@@ -23,9 +23,9 @@ class MemoriesController < ApplicationController
 
         #This receives the params from the user filling out the form and create a new instance.
    post "/memories" do
-      @memory = Memory.create(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], user_id: current_user.id)
+      @memory = Memory.create(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id], user_id: current_user.id)
       
-      redirect to "/memories/#{memory.id}"
+      redirect to "/memories/#{@memory.id}"
   end
 
   #Read (show erb)
@@ -47,6 +47,8 @@ class MemoriesController < ApplicationController
 
   # DELETE: /memories/5/delete
   delete "/memories/:id/delete" do
+    if logged_in?
+    end
     redirect "/memories"
   end
 end
