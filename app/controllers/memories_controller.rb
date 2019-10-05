@@ -37,17 +37,27 @@ class MemoriesController < ApplicationController
 
   # UPDATE
   get "/memories/:id/edit" do
+    #confirm the user is logged in and is authorized to edit the memory
+    #find the memory
+    @memory = Memory.find(params[:id])
+    #render the edit view
     erb :"/memories/edit.html"
   end
 
-  # PATCH: /memories/5
+  # UPDATE - PATCH
   patch "/memories/:id" do
-    redirect "/memories/:id"
+    
+    #find the memory
+    #call the update method on the memory.
+    @memory = Memory.find(params[:id])
+    @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
+
+    redirect "/memories/#{@memory.id}"
   end
 
   # DELETE
   delete "/memories/:id/delete" do
-    #confirm that the user is logged in
+    #confirm that the user is logged in and authoried to delete the memory
     #find the memory
     #destroy the memory
     if logged_in?
@@ -59,6 +69,6 @@ class MemoriesController < ApplicationController
       #put a flash error message, only the user can delete this post.
       #redirect the user to the home page 
       redirect to '/'
-
+    end
   end
 end

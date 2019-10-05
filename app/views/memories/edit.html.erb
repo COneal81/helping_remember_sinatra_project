@@ -1,1 +1,27 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>This is the edit page</h1>
+
+
+<form class="" action="/memories/ <%= @memory.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="title"> Title: </label>
+        <input type="text" id="title" name="title" value="<%=@memory.title%>">
+        <br>
+    <label for="description"> Description: </label>
+        <textarea name="description" style="width:auto; height:auto;"> <%= @memory.description%>"></textarea>
+        <br>
+        <br>
+    <label for="date"> Date:</label>
+        <input type="text" id="date" name="date" value="<%= @memory.date%>">
+        <br>
+        <br>
+    <label for="image_url">Image Link: </label>
+        <input type="text" id="image_url" name="image_url" value="<%= @memory.image_url%>">
+        <br>
+        <br>
+    <h3>Select Category</h3>
+        <input type="radio" name="Family" value="<%= @memory.category_id%>"> Family <br>
+        <input type="radio" name="Hobbies" value="<%= @memory.category_id%>"> Hobbies <br>
+        <input type="radio" name="Travel" value="<%= @memory.category_id%>"> Travel <br>
+    <br>
+    <input type="submit" value="Update Memory">
+</form>
