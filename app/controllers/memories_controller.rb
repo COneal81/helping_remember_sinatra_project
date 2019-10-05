@@ -28,14 +28,14 @@ class MemoriesController < ApplicationController
       redirect to "/memories/#{@memory.id}"
   end
 
-  #Read (show erb)
+  #READ continued (show erb)
   get "/memories/:id" do
     @memory = Memory.find(params[:id])
     #renders the memory
     erb :"/memories/show.html"
   end
 
-  # GET: /memories/5/edit
+  # UPDATE
   get "/memories/:id/edit" do
     erb :"/memories/edit.html"
   end
@@ -45,10 +45,20 @@ class MemoriesController < ApplicationController
     redirect "/memories/:id"
   end
 
-  # DELETE: /memories/5/delete
+  # DELETE
   delete "/memories/:id/delete" do
+    #confirm that the user is logged in
+    #find the memory
+    #destroy the memory
     if logged_in?
-    end
+      @memory = Memory.find(params [:id])
+      @memory.destroy
+      #put flash message here to let the user know that their memory has been destroyed
     redirect "/memories"
+    else  
+      #put a flash error message, only the user can delete this post.
+      #redirect the user to the home page 
+      redirect to '/'
+
   end
 end

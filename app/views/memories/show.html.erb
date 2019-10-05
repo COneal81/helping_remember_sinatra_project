@@ -9,3 +9,10 @@
         <p>Category: <%= @memory.category.name %> </p>
         <br>
         <br>
+    <a href="/memories/<%@memory.id%>/edit"> Edit Memory </a>
+    <br>
+    <br>
+    <form class="" action="/memories/<% @memory.id%>" method="POST"> 
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" name="" value="Delete Memory">
+    </form>
