@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   
   get '/login' do
-    # if logged_in?
-    #    redirect to "/users/#{current_user.id}"
-    # else  
+    if logged_in?
+       redirect to "/users/#{current_user.id}"
+    else  
       erb :"users/login.html"
-    # end
+    end
   end
 
   post '/login' do 
@@ -58,13 +58,14 @@ class UsersController < ApplicationController
    #start a new session
    session[:user_id] = @user.id
    #redirect the user to their show page
-   flash[:message] = "Signup sucessful."
+   flash[:message] = "Welcome #{@user.username} to Helping Remember"
    redirect "/users/#{@user.id}"
   end
 
   get '/logout' do 
     if logged_in?
     session.clear 
+    flash[:message] = "Log Out Successful"
     redirect to '/login'
     else
     redirect to '/'

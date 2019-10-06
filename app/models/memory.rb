@@ -2,6 +2,7 @@ class Memory < ActiveRecord::Base
     belongs_to :user
     belongs_to :category
 
-    validate :title, :description, :date
+    # impliment validators
+    validates :title, :description, :date, presence: true
 end
 
