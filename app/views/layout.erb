@@ -22,8 +22,18 @@
               <a href="/memories/new"> Create a Memory </a>
               <a href="/logout"> Log Out </a>
             <% end %>
-        </div>  
+         </div>
                
+        <div>
+            <% if flash[:message]%>
+              <h3 style="color: 581845;"> <%=flash[:message]%> </h3>
+            <%end%>
+
+            <% if flash[:error]%>
+              <h3 style="color: FF5733;"> <%=flash[:error]%> </h3>
+              <%end%>
+        
+        </div> 
         <%= yield %>
 
       <footer class="branding">

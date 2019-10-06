@@ -7,6 +7,7 @@
 <%@user.memories.each do |mem|%>
 <h4> <a href="/memories/<%= mem.id%>"> <%= mem.title%> </a></h4>
 <img src="<%=mem.image_url%>" height="100" width="100">
+
 <br>
 <br>
 <%end%>

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       #  binding.pry - once in pry, type params to see what the params are.  Also type @user and you 
       #should see all of the users info.
   # #   #next we need to authenticate the user.  This checks their password against the password in the database.
-        if @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:password])
   # #     #then we would start a session, which is what actually logs the user into the app.
           session[:user_id] = @user.id
   # #     #if successful, flash a message that welcomes the user
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
           redirect "/users/#{@user.id}"
      else
   # #     #flash message saying that was an incorrect email or password
-         flash[:error] = "Incorrect Email or Password.  Please try again."
+         flash[:error] = "Invalid Email or Password.  Please try again."
   # #     #redirect to login page 
           redirect to '/login'
       
@@ -58,6 +58,7 @@ class UsersController < ApplicationController
    #start a new session
    session[:user_id] = @user.id
    #redirect the user to their show page
+   flash[:message] = "Signup sucessful."
    redirect "/users/#{@user.id}"
   end
 

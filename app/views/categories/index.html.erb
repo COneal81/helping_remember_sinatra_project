@@ -1,1 +1,6 @@
-<h1>This is the Model's index page.</h1>
+<h1>Categories</h1>
+
+<% @category.each do |cate|%>
+<%= cate.name%>
+<br>
+<%end%>

@@ -20,7 +20,10 @@ class MemoriesController < ApplicationController
         #This route will send the user to a form to fill out to create a new memory.
   get "/memories/new" do
     if logged_in?
-    erb :"/memories/new.html"
+      erb :"/memories/new.html"
+    else 
+      flash[:error] = "Please login or signup to create a new memory."
+      redirect to '/'
     end
   end
 
@@ -34,7 +37,6 @@ class MemoriesController < ApplicationController
   #READ continued (show erb)
   get "/memories/:id" do
     @memory = Memory.find(params[:id])
-    @category = Category.all
     #renders the memory
     erb :"/memories/show.html"
   end
@@ -44,14 +46,13 @@ class MemoriesController < ApplicationController
     #confirm the user is logged in and is authorized to edit the memory
     #find the memory
     @memory = Memory.find(params[:id])
-    @category = Category.find(params[:id])
+    @category = Category.all
     #render the edit view
     erb :"/memories/edit.html"
   end
 
   # UPDATE - PATCH
-  patch "/memories/:id" do
-    
+  patch "/memories/:id" do 
     #find the memory
     #call the update method on the memory.
     @memory = Memory.find(params[:id])
@@ -70,6 +71,7 @@ class MemoriesController < ApplicationController
   
       @memory = Memory.find(params[:id])
       @memory.destroy
+      flash[:message] = "Log Out Sucessful."
     #   #put flash message here to let the user know that their memory has been destroyed
     redirect "/memories"
     # else  
