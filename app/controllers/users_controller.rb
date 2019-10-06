@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
     @memory = Memory.all
+    @category = Category.all
     erb :'/users/show.html' 
   end
 

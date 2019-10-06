@@ -1,37 +1,25 @@
 class CategoriesController < ApplicationController
 
-  # GET: /categories
+ 
   get "/categories" do
-    erb :"/categories/index.html"
+    #make sure that the user is logged in
+    #get all of the categories and sort by name
+    #if not logged in, redirect to home page
+      if logged_in?
+        @categories = Category.all.sort_by{|category| category.name}
+        erb :"/categories/index.html"
+      else  
+        redirect to '/'
+      end
   end
 
-  # GET: /categories/new
-  get "/categories/new" do
-    erb :"/categories/new.html"
+  get "/categories/" do 
+    @category = Category.find(params[:id])
+    erb :"categories/show"
   end
 
-  # POST: /categories
-  post "/categories" do
-    redirect "/categories"
-  end
+  
+  
 
-  # GET: /categories/5
-  get "/categories/:id" do
-    erb :"/categories/show.html"
-  end
-
-  # GET: /categories/5/edit
-  get "/categories/:id/edit" do
-    erb :"/categories/edit.html"
-  end
-
-  # PATCH: /categories/5
-  patch "/categories/:id" do
-    redirect "/categories/:id"
-  end
-
-  # DELETE: /categories/5/delete
-  delete "/categories/:id/delete" do
-    redirect "/categories"
-  end
+  
 end

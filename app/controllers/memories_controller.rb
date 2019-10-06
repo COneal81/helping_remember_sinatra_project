@@ -3,7 +3,10 @@ class MemoriesController < ApplicationController
 #READ (index erb)
   get "/memories" do
     if logged_in?
+      #NOTE: I need to find the user to only display the users memories
       @memory = Memory.all
+      @category = Category.all
+       
     erb :"/memories/index.html"
    
     else  
@@ -31,6 +34,7 @@ class MemoriesController < ApplicationController
   #READ continued (show erb)
   get "/memories/:id" do
     @memory = Memory.find(params[:id])
+    @category = Category.all
     #renders the memory
     erb :"/memories/show.html"
   end
@@ -40,6 +44,7 @@ class MemoriesController < ApplicationController
     #confirm the user is logged in and is authorized to edit the memory
     #find the memory
     @memory = Memory.find(params[:id])
+    @category = Category.find(params[:id])
     #render the edit view
     erb :"/memories/edit.html"
   end
@@ -50,6 +55,7 @@ class MemoriesController < ApplicationController
     #find the memory
     #call the update method on the memory.
     @memory = Memory.find(params[:id])
+    @category = Category.all
     @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
 
     redirect "/memories/#{@memory.id}"
@@ -57,18 +63,19 @@ class MemoriesController < ApplicationController
 
   # DELETE
   delete "/memories/:id/delete" do
+    
     #confirm that the user is logged in and authoried to delete the memory
     #find the memory
     #destroy the memory
-    if logged_in?
-      @memory = Memory.find(params [:id])
+  
+      @memory = Memory.find(params[:id])
       @memory.destroy
-      #put flash message here to let the user know that their memory has been destroyed
+    #   #put flash message here to let the user know that their memory has been destroyed
     redirect "/memories"
-    else  
+    # else  
       #put a flash error message, only the user can delete this post.
       #redirect the user to the home page 
-      redirect to '/'
-    end
+    #   redirect to '/'
+    # end
   end
 end

@@ -1,18 +1,18 @@
 <br>
-<h3> <%= @memory.title %> </h3>
+<h3> <%= @memory.title %> </a> </h3>
 
-<h5> <a href="/memories/<%= @memory.id%>"> <%= @memory.image_url%>" alt=" photo" height="100" width="100"></a></h5>
+ <img src="<%= @memory.image_url%>" alt="photo" height="100" width="100"></a>
         <br>
     <p> Date: <%= @memory.date%> </p>
     <p>  Description:  <%= @memory.description%> </p>
         <br>
-        <p>Category: <%= @memory.category.name %> </p>
+        <%# <p>Category: <%= @memory.category.name %> </p> %>
         <br>
         <br>
     <a href="/memories/<%= @memory.id %>/edit"> Edit Memory </a>
     <br>
     <br>
-    <form class="" action="/memories/<% @memory.id%>" method="POST"> 
+    <form class="" action="/memories/<%= @memory.id%>/delete" method="POST"> 
         <input type="hidden" name="_method" value="delete">
         <input type="submit" name="" value="Delete Memory">
     </form>
