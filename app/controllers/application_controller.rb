@@ -26,7 +26,9 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by(id: session[:user_id])
     end
 
-
+    def authorized?(memory)
+      memory.user == current_user
+    end
   end
 
 end

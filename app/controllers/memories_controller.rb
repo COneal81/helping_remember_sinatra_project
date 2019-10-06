@@ -2,14 +2,12 @@ class MemoriesController < ApplicationController
 
 #READ (index erb)
   get "/memories" do
-    if logged_in?
+    if logged_in? 
       #NOTE: I need to find the user to only display the users memories
       @memory = Memory.all     
     erb :"/memories/index.html"
-   
     else  
-
-      redirect to '/login'
+      redirect to '/'
     end
   end
 
@@ -58,11 +56,13 @@ class MemoriesController < ApplicationController
   patch "/memories/:id" do 
     #find the memory
     #call the update method on the memory.
-    @memory = Memory.find(params[:id])
-    @category = Category.all
-    @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
+    if authorized?(memory)
+      @memory = Memory.find(params[:id])
+      @category = Category.all
+      @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
     flash[:message] = "Update Complete"
     redirect "/memories/#{@memory.id}"
+    end
   end
 
   # DELETE
@@ -71,15 +71,15 @@ class MemoriesController < ApplicationController
     #confirm that the user is logged in and authoried to delete the memory
     #find the memory
     #destroy the memory
-  
+    if authorized?(memory)
       @memory = Memory.find(params[:id])
       @memory.destroy
       flash[:message] = "Memory Deleted"
-    #   #put flash message here to let the user know that their memory has been destroyed
-    redirect "/memories"
-    # else  
+       #put flash message here to let the user know that their memory has been destroyed
+      redirect "/memories"
+    else  
       #redirect the user to the home page 
-    #   redirect to '/'
-    # end
+      redirect to '/'
+    end
   end
 end
