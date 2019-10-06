@@ -44,19 +44,20 @@ class MemoriesController < ApplicationController
 
   # UPDATE
   get "/memories/:id/edit" do
-    #confirm the user is logged in and is authorized to edit the memory
     #find the memory
+    #confirm the user is logged in and is authorized to edit the memory
     @memory = Memory.find(params[:id])
-    @category = Category.all
-    #render the edit view
-    erb :"/memories/edit.html"
+      if authorized?(@memory)
+        #render the edit view
+        erb :"/memories/edit.html"
+      else 
+        redirect to '/memories'
   end
 
   # UPDATE - PATCH
   patch "/memories/:id" do 
     #find the memory
     #call the update method on the memory.
-    if authorized?(memory)
       @memory = Memory.find(params[:id])
       @category = Category.all
       @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
@@ -71,7 +72,7 @@ class MemoriesController < ApplicationController
     #confirm that the user is logged in and authoried to delete the memory
     #find the memory
     #destroy the memory
-    if authorized?(memory)
+    if authorized?(@memory)
       @memory = Memory.find(params[:id])
       @memory.destroy
       flash[:message] = "Memory Deleted"

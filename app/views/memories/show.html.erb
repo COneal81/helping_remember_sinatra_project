@@ -8,10 +8,12 @@
         <br>
         <br>
         <br>
+    <% if authorized?(@memory)%>
     <a href="/memories/<%= @memory.id %>/edit"> Edit Memory </a>
     <br>
     <br>
     <form class="" action="/memories/<%= @memory.id%>/delete" method="POST"> 
         <input type="hidden" name="_method" value="delete">
         <input type="submit" name="" value="Delete Memory">
+    <%end%>
     </form>
