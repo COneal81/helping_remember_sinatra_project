@@ -5,10 +5,11 @@
         <br>
     <p> Date: <%= @memory.date%> </p>
     <p>  Description:  <%= @memory.description%> </p>
+    <p> Category: <%= @memory.category_id%> </p>
         <br>
         <br>
         <br>
-    <% if authorized?(@memory)%>
+    <% if authorized_to_edit_delete(@memory)%>
     <a href="/memories/<%= @memory.id %>/edit"> Edit Memory </a>
     <br>
     <br>

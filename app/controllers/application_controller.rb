@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by(id: session[:user_id])
     end
 
-    def authorized?(memory)
+    def authorized_to_edit_delete(memory)
       memory.user == current_user
     end
   end
