@@ -17,15 +17,13 @@
         <input type="text" id="image_url" name="image_url">
         <br>
         <br>
-    <label for="category_id"> Category: </label><br>
-        <input type="radio"  name="category_id" value="2">  Family <br>
-        <input type="radio"  name="category_id" value="1"> Hobbies <br>
-    
+    <label for="category_id"> Category: (select one) </label><br>
+        <%@category.each do |cate|%>
+        <%# <input type="radio"  name="category_id" value="2">  Family <br> %>
+        <%# <input type="radio"  name="category_id" value="1"> Hobbies <br> %>
         
-        
-        
-        
-        
+        <input type="radio" name="cate.category_id" value="cate.name == category_id"> <%=cate.name%> <br>
+        <%end%>
     <br>
     <input type="submit" value="Create a Memory">
 </form>

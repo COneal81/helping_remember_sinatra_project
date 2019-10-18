@@ -13,8 +13,33 @@ class CategoriesController < ApplicationController
       end
   end
 
-  get "/categories/" do 
-  
+#CREATE (new erb)
+        #This route will send the user to create a new category.
+        get "/categories/new" do
+          if logged_in?
+            erb :"/categories/new.html"
+          else 
+            flash[:error] = "Login or Signup to create a new category."
+            redirect to '/'
+          end
+        end
+      
+              #This receives the params from the user filling out the form and create a new instance.
+         post "/categories" do
+          #  binding.pry
+            @category = Category.new(name: params[:name])
+            if @category.save
+              flash[:message] = "Category Saved.  Now it is time to create a memory!"
+              redirect to "/memories/new"
+            else 
+              flash[:error] = "The box must be filled in to save a new category."
+              redirect to '/categories/new.html'
+            end
+        end
+      
+
+  get "/categories/:id" do 
+    @category = Category.find(params[:id])
     erb :"categories/show"
   end
 

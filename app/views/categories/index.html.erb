@@ -1,6 +1,9 @@
-<h1>Categories</h1>
-
-<% @category.each do |cate|%>
-<%= cate.name%>
 <br>
+<h1>Select a Memory Category</h1>
+<br>
+<% @category.each do |cate|%>
+    <h3> <a href="/categories/<%= cate.id%>"> <%= cate.name%> </a></h3>
+
 <%end%>
+<h5> or </h5>
+<h3> <a href="/categories/new"> Create a New Category  </h3>

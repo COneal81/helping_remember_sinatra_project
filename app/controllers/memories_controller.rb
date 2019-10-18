@@ -4,7 +4,9 @@ class MemoriesController < ApplicationController
   get "/memories" do
     if logged_in? 
       #NOTE: I need to find the user to only display the users memories
+      user = User.find_by(id: params[:id])
       @memory = Memory.all     
+      @category = Category.all
     erb :"/memories/index.html"
     else  
       redirect to '/'
@@ -16,6 +18,7 @@ class MemoriesController < ApplicationController
         #This route will send the user to a form to fill out to create a new memory.
   get "/memories/new" do
     if logged_in?
+      @category = Category.all
       erb :"/memories/new.html"
     else 
       flash[:error] = "Login or Signup to create a new memory."
@@ -25,7 +28,7 @@ class MemoriesController < ApplicationController
 
         #This receives the params from the user filling out the form and create a new instance.
    post "/memories" do
-    # binding.pry
+    #  binding.pry
       @memory = Memory.new(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id], user_id: current_user.id)
       if @memory.save
       flash[:message] = "Memory Saved"
@@ -34,7 +37,7 @@ class MemoriesController < ApplicationController
         flash[:error] = "Title, Description, and Date must be filled in to save a new memory."
         redirect to '/memories/new'
       end
-  end
+    end
 
   #READ continued (show erb)
   get "/memories/:id" do
