@@ -25,7 +25,7 @@ class MemoriesController < ApplicationController
 
         #This receives the params from the user filling out the form and create a new instance.
    post "/memories" do
-    binding.pry
+    # binding.pry
       @memory = Memory.new(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id], user_id: current_user.id)
       if @memory.save
       flash[:message] = "Memory Saved"
@@ -52,7 +52,8 @@ class MemoriesController < ApplicationController
         #render the edit view
         erb :"/memories/edit.html"
       else 
-        redirect to '/memories/'
+        redirect to '/memories'
+    end
   end
 
   # UPDATE - PATCH
@@ -63,7 +64,6 @@ class MemoriesController < ApplicationController
       @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
     flash[:message] = "Update Complete"
     redirect "/memories/#{@memory.id}"
-    end
   end
 
   # DELETE
