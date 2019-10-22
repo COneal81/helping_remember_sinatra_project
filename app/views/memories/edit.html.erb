@@ -18,8 +18,10 @@
         <br>
         <br>
     <h3>Select Category</h3>
-        <input type="radio" name="Family" value="<%= @memory.category_id%>"> Family <br>
-        <input type="radio" name="Hobbies" value="<%= @memory.category_id%>"> Hobbies <br>
+    <input type="radio"  name="category_id" value="2">  Family <br>
+        <input type="radio"  name="category_id" value="1"> Hobbies <br>
+        <%# <input type="radio" name="Family" value="<%= @memory.category_id"> Family <br> %>
+        <%# <input type="radio" name="Hobbies" value="<%= @memory.category_id%>"> Hobbies <br> %> %>
     
     <br>
     <input type="submit" value="Update Memory">

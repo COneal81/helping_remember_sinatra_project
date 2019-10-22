@@ -19,10 +19,10 @@
         <br>
     <label for="category_id"> Category: (select one) </label><br>
         <%@category.each do |cate|%>
-        <%# <input type="radio"  name="category_id" value="2">  Family <br> %>
-        <%# <input type="radio"  name="category_id" value="1"> Hobbies <br> %>
+        <input type="radio"  name="category_id" value="2">  Family <br>
+        <input type="radio"  name="category_id" value="1"> Hobbies <br>
         
-        <input type="radio" name="cate.name" value="cate.name == category_id"> <%=cate.name%> <br>
+        <%# <input type="radio" name="cate.name" value="cate.name == category_id"> <%=cate.name%> <br> %>
         <%end%>
     <br>
     <input type="submit" value="Create a Memory">

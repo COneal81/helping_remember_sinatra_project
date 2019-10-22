@@ -5,7 +5,17 @@
         <br>
     <p> Date: <%= @memory.date%> </p>
     <p>  Description:  <%= @memory.description%> </p>
-    <p> Category: <%= @memory.category_id%> </p>
+
+    
+    
+    <p> Category: <%= if @memory.category_id == 0
+            "Family"
+        elsif @memory.category_id == 1 
+            "Hobbies"
+        else 
+            "A category was not selected"
+        end%></p>
+    
         <br>
         <br>
         <br>
