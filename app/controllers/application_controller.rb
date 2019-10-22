@@ -30,6 +30,7 @@ class ApplicationController < Sinatra::Base
       memory.user == current_user
     end
 
+
     # def slug 
     #   title.downcase.gsub(" ", "-")
     # end

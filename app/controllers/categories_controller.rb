@@ -43,11 +43,23 @@ class CategoriesController < ApplicationController
   
         get "/categories/:id" do 
           @category = Category.find(params[:id])
-          memories = Memory.all
+          # @user = User.find(params[:id])
+          # binding.pry`
           erb :"categories/show.html"
         end
   
-  
+        #DELETE
+        delete "/categories/:id/delete" do 
+          #confirm that the user is logged in and authoriezed to delete the category
+          #find the category
+          #destroy the category
+          @category = Category.find(params[:id])
+          @category.destroy
+          flash[:message] = "Category Deleted"
+     #put flash message here to let the user know that their memory has been destroyed
+    redirect "/login"
 
+        end
   
 end
+

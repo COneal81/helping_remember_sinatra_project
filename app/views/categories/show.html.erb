@@ -1,8 +1,11 @@
 <h3> Your <%=@category.name%> Memories</h3>
 
-<% @category.memories.each do |mem| %>
+<%@category.memories.each do |mem| %>
 <a href="/memories/ <%= mem.id %>"> <%= mem.title%> </a>
 <img src="<%=mem.image_url%>" height="100" width="100">
 <br><br>
 <%end%>
 
+ <form class="" action="/categories/<%= @category.id%>/delete" method="POST"> 
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" name="" value="Delete Category">
