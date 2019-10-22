@@ -1,16 +1,19 @@
 <br>
 <h1>All Your Memories</h1>
-    <br>
+    
   
 
 
-
+    <><><><><><><><><><><>
+    <br>
+    <br>
     <%@memory.each do |memory|%>
     <h3> <a href="/memories/<%= memory.id%>"> <%= memory.title%> </a></h3>
     <img src="<%=memory.image_url%>"  photo" height="100" width="100">
         <br>
     <h5> Date:<%= memory.date%> </h5>
     <h5> Category: <%= @category.name%> </h5>
+   
         <br>
         <br>
         <br>

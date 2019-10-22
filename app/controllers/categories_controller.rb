@@ -13,6 +13,8 @@ class CategoriesController < ApplicationController
       end
   end
 
+ 
+
 #CREATE (new erb)
         #This route will send the user to create a new category.
         get "/categories/new" do
@@ -38,11 +40,12 @@ class CategoriesController < ApplicationController
         end
       
 
-  get "/categories/:id" do 
-    @category = Category.find(params[:id])
-    erb :"categories/show"
-  end
-
+  
+        get "/categories/:id" do 
+          @category = Category.find(params[:id])
+          memories = Memory.all
+          erb :"categories/show.html"
+        end
   
   
 

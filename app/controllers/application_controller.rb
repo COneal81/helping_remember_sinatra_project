@@ -29,6 +29,14 @@ class ApplicationController < Sinatra::Base
     def authorized_to_edit_delete(memory)
       memory.user == current_user
     end
+
+    # def slug 
+    #   title.downcase.gsub(" ", "-")
+    # end
+
+    # def self.find_by_slug(slug)
+    #   Memory.all.find{|memory| memory.slug == slug}
+    # end
   end
 
 end
