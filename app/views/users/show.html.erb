@@ -7,8 +7,14 @@
     <h4> <a href="/memories/<%= mem.id%>"> <%= mem.title%> </a></h4>
     <img src="<%=mem.image_url%>" height="100" width="100">
     <h5> Date: <%= mem.date%> </h5>
-    <h5> Category: <%= @category.name%> </h5>
+    <h5> Category:  <%= if mem.category_id == 1
+                    "Hobbies"
+                    elsif mem.category_id == 2 
+                    "Family"
+                    else 
+                    "A category was not selected."
+                    end%> </h5>
 <br><br>
 <%end%>
 
-   
+  

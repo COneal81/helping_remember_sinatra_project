@@ -63,6 +63,7 @@ class MemoriesController < ApplicationController
   patch "/memories/:id" do 
     #find the memory
     #call the update method on the memory.
+    # binding.pry
       @memory = Memory.find(params[:id])
       @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
     flash[:message] = "Update Complete"
@@ -80,7 +81,7 @@ class MemoriesController < ApplicationController
       @memory.destroy
       flash[:message] = "Memory Deleted"
        #put flash message here to let the user know that their memory has been destroyed
-      redirect "/memories"
+      redirect "/login"
     # else  
     #   #redirect the user to the home page 
     #   redirect to '/'

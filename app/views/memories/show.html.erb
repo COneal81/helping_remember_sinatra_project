@@ -8,13 +8,14 @@
 
     
     
-    <p> Category: <%= if @memory.category_id == 0
-            "Family"
-        elsif @memory.category_id == 1 
-            "Hobbies"
-        else 
-            "A category was not selected"
-        end%></p>
+    <p> Category: <%= if @memory.category_id == 1
+                    "Hobbies"
+                    elsif @memory.category_id == 2 
+                    "Family"
+                    else 
+                    "A category was not selected."
+                    end%>
+    </p>
     
         <br>
         <br>
