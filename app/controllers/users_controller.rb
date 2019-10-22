@@ -50,16 +50,18 @@ class UsersController < ApplicationController
   end
  
   post '/signup' do 
-    
-    
    #create a new user
    @user = User.create(params)
   #  binding.pry
    #start a new session
-   session[:user_id] = @user.id
+   if session[:user_id] = @user.id
    #redirect the user to their show page
    flash[:message] = "Welcome #{@user.username} to Helping Remember"
    redirect "/users/#{@user.id}"
+   else  
+    flash[:error] = "User creation failure: #{@user.errors.full_messages.to_sentence}"
+    redirect to '/'
+   end
   end
 
   get '/logout' do 

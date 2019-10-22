@@ -11,17 +11,21 @@
 
     <form action="/signup" method="POST">
         <label for="username"><strong> Username: * </strong></label>
-        <input type="text" name="username" value="" id="username" required><br><br>
-        
+        <input type="text" name="username" value="" id="username" >
+        <h6> (must contain 2 characters) </h6>
+        <br>
+
         <label for="email"><strong> Email: *</strong></label>
-        <input type="text" name="email" value="" id="email" required><br><br>
-
+        <input type="text" name="email" value="" id="email" >
+        <br><br>
         <label for="password"><strong> Password: * </strong></label>
-        <input type="password" name="password" value="" id="password" required><br><br>
-
+        <input type="password" name="password" value="" id="password">
+        <h6> (must contain 6 - 20 characters) </h6>
+        <br>
         <label for="password"><strong> Password: * </strong></label>
-        <input type="password" name="password" value="" id="password" required><br><br>
-        
+        <input type="password" name="password" value="" id="password" >
+        <h6> (must contain 6 - 20 characters) </h6>
+        <br>
         <h5> *Fields are Required</h5>
 
         <input class="btn btn-info" type="submit" value="Create your Helping Remeber account">
@@ -30,6 +34,6 @@
         <br>
         <br>
 <%# This will allow the user who has an account to be taken to the login page. %>
-<h5> Already have an account? <a href="/users/login"> Login </h5>
+<h5> Already have an account? <a href="/login"> Login </h5>
   
   

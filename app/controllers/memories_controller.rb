@@ -4,7 +4,7 @@ class MemoriesController < ApplicationController
   get "/memories" do
     if logged_in? 
       #NOTE: I need to find the user to only display the users memories
-      user = User.find_by(id: params[:id])
+      user = current_user
       @memory = Memory.all     
       @category = Category.all
     erb :"/memories/index.html"
