@@ -57,8 +57,8 @@ class UsersController < ApplicationController
    flash[:message] = "Welcome #{@user.username} to Helping Remember"
    redirect "/users/#{@user.id}"
    else  
-    flash[:error] = "User creation failure: #{@user.errors.full_messages.to_sentence}"
-    redirect to '/'
+    flash[:error] = "Account not created. #{@user.errors.full_messages.to_sentence}  Please try again."
+    redirect to '/signup'
    end
   end
 
