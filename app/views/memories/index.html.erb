@@ -1,4 +1,5 @@
 <br>
+
 <h1>Shared Memories</h1>
 
 <a href="/categories"> Shared Memories by Category</a>
@@ -6,10 +7,11 @@
     <br>
     <%@memory.each do |memory|%>
     <h3> <a href="/memories/<%= memory.id%>"> <%= memory.title%> </a></h3>
-    <img src="<%=memory.image_url%>"  photo" height="100" width="100">
+  
+    <img src="<%=memory.image_url%>"  photo height="100" width="100">
         <br>
-    <h5> Date:<%= memory.date%> </h5>
-    <h5> Category:  <%= memory.category_id%></h5>
+    <h5> Date:<%= memory.date %> </h5>
+    <h5> Category: <%= memory.category.name %></h5>
    
         <br>
         <br>

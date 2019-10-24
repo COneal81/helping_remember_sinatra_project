@@ -34,7 +34,7 @@ class MemoriesController < ApplicationController
       flash[:message] = "Memory Saved"
       redirect to "/memories/#{@memory.id}"
       else 
-        flash[:error] = "Title, Description, and Date must be filled in to save a new memory."
+        flash[:error] = "Title, Description, Date, and Category must be filled in to save a new memory."
         redirect to '/memories/new'
       end
     end

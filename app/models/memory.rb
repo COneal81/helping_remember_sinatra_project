@@ -7,6 +7,6 @@ class Memory < ActiveRecord::Base
     # memories_controller - post/memories flash error message.  
     # This is hard coded for an easier user experience.
 
-    validates :title, :description, :date, presence: true
+    validates :title, :description, :date, :category_id, presence: true
 end
 

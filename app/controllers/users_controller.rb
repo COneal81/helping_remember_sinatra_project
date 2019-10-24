@@ -49,6 +49,7 @@ class UsersController < ApplicationController
  
   post '/signup' do 
    #create a new user
+  #  binding.pry
    @user = User.create(params)
   #  binding.pry
    #start a new session
