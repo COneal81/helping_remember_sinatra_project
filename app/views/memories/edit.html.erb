@@ -17,19 +17,14 @@
         <input type="text" id="image_url" name="image_url" value="<%= @memory.image_url%>">
         <br>
         <br>
-    <h3>Select Category</h3>
-     <input type="radio"  name="category_id" value="11"> Bucket List <br>
-        <input type="radio"  name="category_id" value="13"> Careers <br>
-        <input type="radio"  name="category_id" value="17"> Elderly Years <br>
-        <input type="radio"  name="category_id" value="2"> Family <br>
-        <input type="radio"  name="category_id" value="12"> Friends <br>
-        <input type="radio"  name="category_id" value="1"> Hobbies <br>
-        <input type="radio"  name="category_id" value="7"> Medical History <br>
-        <input type="radio"  name="category_id" value="16"> Mid Life Years <br>
-        <input type="radio"  name="category_id" value="10"> Pets <br>
-        <input type="radio"  name="category_id" value="14"> Places You Lived <br>
-        <input type="radio"  name="category_id" value="15"> School Age Years <br>
-        <input type="radio"  name="category_id" value="4"> Travel <br>
+
+    <label for="category_id"> Category: (select one) </label><br>
+        <%@category.each do |cate|%>    
+        <input type="checkbox" id="category_id" name="category_id" value="<%=cate.id%>"> <%= cate.name%> <br>
+        <%end%>
+
+     
+    
     <br>
     <input type="submit" value="Update Memory">
 </form>

@@ -3,8 +3,7 @@ class MemoriesController < ApplicationController
 #READ (index erb)
   get "/memories" do
     if logged_in? 
-      #NOTE: I need to find the user to only display the users memories
-      @user = User.find_by(id: params[:id])
+      #NOTE: This is going to display all of the memories from all of the users.
       @memory = Memory.all     
       @category = Category.all
     erb :"/memories/index.html"
@@ -50,6 +49,7 @@ class MemoriesController < ApplicationController
   get "/memories/:id/edit" do
     #find the memory
     #confirm the user is logged in and is authorized to edit the memory
+    @category = Category.all
     @memory = Memory.find(params[:id])
     if authorized_to_edit_delete(@memory)
         #render the edit view
