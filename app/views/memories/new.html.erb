@@ -20,7 +20,7 @@
     <label for="category_id"> Category: (select one) </label><br>
         
         <%@category.each do |cate|%>    
-        <input type="checkbox" id="category_id" name="category_id" value="<%=cate.id%>"> <%= cate.name%> <br>
+        <input type="radio" id="category_id" name="category_id" value="<%=cate.id%>"> <%= cate.name%> <br>
         <%end%>
         
         

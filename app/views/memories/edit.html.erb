@@ -6,7 +6,7 @@
         <input type="text" id="title" name="title" value="<%=@memory.title%>">
         <br>
     <label for="description"> Description: </label>
-        <textarea name="description" style="width:auto; height:auto;"> <%= @memory.description%>"></textarea>
+        <textarea name="description" style="width:auto; height:auto;"> <%= @memory.description%></textarea>
         <br>
         <br>
     <label for="date"> Date:</label>
@@ -17,10 +17,15 @@
         <input type="text" id="image_url" name="image_url" value="<%= @memory.image_url%>">
         <br>
         <br>
-
+    
     <label for="category_id"> Category: (select one) </label><br>
-        <%@category.each do |cate|%>    
-        <input type="checkbox" id="category_id" name="category_id" value="<%=cate.id%>"> <%= cate.name%> <br>
+        <%@category.each do |cate|%>  
+
+        <input type="radio" id="category_id " name="category_id"  value="<%= cate.id %>" 
+         <%= 'checked' if @category.include?(cate) %> >  <%=cate.name%> 
+          
+        <br>
+            
         <%end%>
 
      

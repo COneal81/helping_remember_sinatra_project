@@ -51,6 +51,7 @@ class MemoriesController < ApplicationController
     #confirm the user is logged in and is authorized to edit the memory
     @category = Category.all
     @memory = Memory.find(params[:id])
+    
     if authorized_to_edit_delete(@memory)
         #render the edit view
         erb :"/memories/edit.html"
@@ -63,7 +64,7 @@ class MemoriesController < ApplicationController
   patch "/memories/:id" do 
     #find the memory
     #call the update method on the memory.
-    # binding.pry
+    
       @memory = Memory.find(params[:id])
       @memory.update(title: params[:title], description: params[:description], date: params[:date], image_url: params[:image_url], category_id: params[:category_id])
     flash[:message] = "Update Complete"
