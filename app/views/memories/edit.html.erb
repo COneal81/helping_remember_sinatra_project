@@ -20,9 +20,9 @@
     
     <label for="category_id"> Category: (select one) </label><br>
         <%@category.each do |cate|%>  
-
-        <input type="radio" id="category_id " name="category_id"  value="<%= cate.id %>" 
-         <%= 'checked' if @category.include?(cate) %> >  <%=cate.name%> 
+         <%# <%binding.pry %>
+        <input type="radio" id="category_id " name="category_id"  value=" <%'checked' if @memory.category.name %>" > 
+         <%=cate.name%>
           
         <br>
             
