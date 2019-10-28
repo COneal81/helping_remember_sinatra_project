@@ -1,11 +1,16 @@
-<<<<<<< HEAD
 
-=======
-# HelpingRememberSinatraProject
+# Helping Remember
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/helping_remember_sinatra_project`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+Helping Remember is an app that lets you keep track of all the memories in your life.
+
+Creating a profile and logging in to the app allows you to keep track of your personal memories and view others memories.
+
+You can add new memories that you would like to remember as well as make changes to your existing memories. 
+
+
+Helping Remember was created for the Flatiron School's Online Web Development Program using Sinatra.
+
 
 ## Installation
 
@@ -23,9 +28,20 @@ Or install it yourself as:
 
     $ gem install helping_remember_sinatra_project
 
+    Run rake db:migrate
+
+    Run shotgun
+    
+    Open your browswer to localhost:9393
+
 ## Usage
 
-TODO: Write usage instructions here
+Once you have the gem installed you can;
+ - Create an account
+ - Create a memory
+ - View all memories
+ - Edit memories
+ - Delete memories
 
 ## Development
 
@@ -35,7 +51,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/helping_remember_sinatra_project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/COneal81/helping_remember_sinatra_project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

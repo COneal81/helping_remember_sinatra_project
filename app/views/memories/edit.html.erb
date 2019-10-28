@@ -20,16 +20,12 @@
     
     <label for="category_id"> Category: (select one) </label><br>
         <%@category.each do |cate|%>  
-         <%# <%binding.pry %>
-        <input type="radio" id="category_id " name="category_id"  value=" <%'checked' if @memory.category.name %>" > 
-         <%=cate.name%>
-          
+        <%# <%binding.pry %>
+        <input type="radio" id="category_id " name="category_id"  value=" <%=cate.id%>" 
+        <%= 'checked' if @memory.category.name %>>
+        <%=cate.name%>
         <br>
-            
         <%end%>
-
-     
-    
     <br>
     <input type="submit" value="Update Memory">
 </form>
