@@ -1,23 +1,24 @@
+<br>
 <h1>Create a Memory!</h1>
-
+<br>
 <form class="" action="/memories" method="post">
-    <label for="title"> Title: </label>
+    <label for="title"> <strong> Title: </strong></label>
         <input type="text" id="title" name="title" value="">
         <br>
         <br>
-    <label for="description"> Description: </label>
+    <label for="description"> <strong> Description: </strong></label>
         <textarea name="description" id="description" value=""></textarea>
         <br>
         <br>
-    <label for="date"> Date:</label>
+    <label for="date"> <strong> Date: </strong></label>
         <input type="text" id="date" name="date" value="">
         <br>
         <br>
-    <label for="image_url">Image Link: </label>
-        <input type="text" id="image_url" name="image_url" value="">
+    <label for="image_url"><strong> Image Link: </strong></label>
+        <input type="text" id="image_url" name="image_url" value="" >
         <br>
         <br>
-    <label for="category_id"> Category: (select one) </label><br>
+    <label for="category_id"><strong> Category: (select one) </strong></label><br>
         
         <%@category.each do |cate|%>    
         <input type="radio" id="category_id" name="category_id" value="<%=cate.id%>"> <%= cate.name%> <br>

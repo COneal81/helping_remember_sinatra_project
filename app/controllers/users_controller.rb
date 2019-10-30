@@ -50,9 +50,9 @@ class UsersController < ApplicationController
  
   post '/signup' do 
    #create a new user
-  #  binding.pry
+  
    @user = User.create(params)
-  #  binding.pry
+  # binding.pry
    #start a new session
    if session[:user_id] = @user.id
    #redirect the user to their show page
@@ -65,6 +65,7 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do 
+    #end the session, redirects, and flash message
     if logged_in?
     session.clear 
     flash[:message] = "Log Out Successful"

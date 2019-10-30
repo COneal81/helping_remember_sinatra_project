@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
     validates :username, length: { minimum: 2 }
     validates :email, uniqueness: true
     validates :password, confirmation: true
-    validates :password, length: { in: 6..20 }
-    validates :password, uniqueness: { case_sensitive: false }
+    validates :password, length: { in: 6..20 } 
+    
     
     has_many :memories
     #this is a marco for the bcrypt gem, and takes in 

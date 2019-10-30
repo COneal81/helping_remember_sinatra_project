@@ -4,14 +4,15 @@
 
  <img src="<%= @memory.image_url %>" alt="photo" height="350" width="425"></a>
         <br>
-    <p> Date: <%= @memory.date%> </p>
-    <p> Description:  <%= @memory.description%> </p>
-    <p> Category: <%= @memory.category.name %><p>
+        <br>
+    <p> <strong> Date: </strong> <%= @memory.date%> </p>
+    <p> <strong>Description: </strong> <%= @memory.description%> </p>
+    <p> <strong>Category:</strong> <%= @memory.category.name %><p>  
+    <p><strong>This memory belongs to user:</strong>  <%=@memory.user.username%> </p>
         <br>
         <br>
         <br>
-   
-    <a href="/login"> Return to Your Memories </a>
+     <a href="/login"> Return to Your Memories </a>
     <br>
     <br>
     <a href="/memories"> Return to Shared Memories </a>
