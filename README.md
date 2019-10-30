@@ -14,25 +14,19 @@ Helping Remember was created for the Flatiron School's Online Web Development Pr
 
 ## Installation
 
-Add this line to your application's Gemfile:
+    1. Clone this repo
 
-```ruby
-gem 'helping_remember_sinatra_project'
-```
+    2. $ git clone git@github.com:COneal81/helping_remember_sinatra_project.git
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install helping_remember_sinatra_project
-
-    Run rake db:migrate
-
-    Run shotgun
+    3. cd helping_remember_sinatra_project/
     
-    Open your browswer to localhost:9393
+    4. Run bundle install 
+    
+    5. Run rake db:migrate
+
+    6.Run shotgun
+    
+    7. Open your browswer to the localhost provided by shotgun
 
 ## Usage
 
