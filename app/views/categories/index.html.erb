@@ -1,7 +1,6 @@
-<br>
+    <br>
 <h1>Shared Memories</h1>
-<br>
-<% @category.each do |cate|%>
-    <h3> <a href="/categories/<%= cate.id%>"> <%= cate.name%> </a></h3>
-
-<%end%>
+    <br>
+        <% @categories.each do |category|%>
+            <h3> <a href="/categories/<%= category.id%>"> <%= category.name%> </a> </h3>
+        <%end%>

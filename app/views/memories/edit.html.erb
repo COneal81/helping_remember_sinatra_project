@@ -1,31 +1,30 @@
-<br>
-<h1>Edit your Memory</h1>
-<br>
-<form class="" action="/memories/<%= @memory.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
-    <label for="title"><strong> Title: </strong> </label>
-        <input type="text" id="title" name="title" value="<%=@memory.title%>">
-        <br>
-    <label for="description"> <strong> Description: </strong></label>
-        <textarea name="description" style="width:auto; height:auto;"> <%=@memory.description%></textarea>
-        <br>
-        <br>
-    <label for="date"> <strong> Date: </strong></label>
-        <input type="text" id="date" name="date" value="<%= @memory.date%>">
-        <br>
-        <br>
-    <label for="image_url"><strong>Image Link: </strong></label>
-        <input type="text" id="image_url" name="image_url" value="<%= @memory.image_url%>">
-        <br>
-        <br>
-    
-    <label for="category_id"> <strong> Category: (select one) </strong></label><br>
-        <%@category.each do |cate|%>  
-        <input type="radio" id="category_id " name="category_id"  value=" <%=cate.id%>" 
-        <%= 'checked' if @memory.category.name == cate.name %>>
-        <%=cate.name%>
-        <br>
-        <%end%>
     <br>
-    <input type="submit" value="Update Memory">
-</form>
+<h1>Edit your Memory</h1>
+    <br>
+    <form class="" action="/memories/<%= @memory.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+            <label for="title"><strong> Title: </strong> </label>
+                <input type="text" id="title" name="title" value="<%=@memory.title%>">
+                <br>
+            <label for="description"> <strong> Description: </strong></label>
+                <textarea name="description" style="width:auto; height:auto;"> <%=@memory.description%></textarea>
+                <br>
+                <br>
+            <label for="date"> <strong> Date: </strong></label>
+                <input type="text" id="date" name="date" value="<%= @memory.date%>">
+                <br>
+                <br>
+            <label for="image_url"><strong>Image Link: </strong></label>
+                <input type="text" id="image_url" name="image_url" value="<%= @memory.image_url%>">
+                <br>
+                <br>
+            <label for="category_id"> <strong> Category: (select one) </strong></label><br>
+                <%@categories.each do |category|%>  
+                    <input type="radio" id="category_id " name="category_id"  value=" <%=category.id%>" 
+                    <%='checked' if @memory.category.name == category.name %>>
+                    <%=category.name%>
+                    <br>
+                <%end%>
+                <br>
+        <input type="submit" value="Update Memory">
+    </form>

@@ -1,14 +1,13 @@
-<br>
+    <br>
 <h1>Your Memories</h1>
-    
     <br>
     <br>
-<%@user.memories.each do |mem|%>
-    <h4> <a href="/memories/<%= mem.id%>"> <%= mem.title%> </a></h4>
-    <img src="<%=mem.image_url%>" height="150" width="150">
-    <h5> Date: <%= mem.date%> </h5>
-    <h5> Category: <%= mem.category.name %><h5>
-<br><br>
-<%end%>
+        <%@user.memories.each do |mem|%>
+            <h4> <a href="/memories/<%= mem.id%>"> <%= mem.title%> </a></h4>
+            <img src="<%=mem.image_url%>" height="150" width="150">
+            <h5> Date: <%= mem.date%> </h5>
+            <h5> Category: <%= mem.category.name %><h5>
+            <br><br>
+        <%end%>
 
   

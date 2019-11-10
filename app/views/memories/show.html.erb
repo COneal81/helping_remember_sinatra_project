@@ -1,8 +1,7 @@
-<br>
-
+    <br>
 <h3> <%= @memory.title %> </a> </h3>
 
- <img src="<%= @memory.image_url %>" alt="photo" height="350" width="425"></a>
+    <img src="<%= @memory.image_url %>" alt="photo" height="350" width="425"></a>
         <br>
         <br>
     <p> <strong> Date: </strong> <%= @memory.date%> </p>
@@ -12,18 +11,22 @@
         <br>
         <br>
         <br>
+
      <a href="/login"> Return to Your Memories </a>
-    <br>
-    <br>
+        <br>
+        <br>
+        
     <a href="/memories"> Return to Shared Memories </a>
-    <br>
-    <br>
+        <br>
+        <br>
     <% if authorized_to_edit_delete(@memory)%>
+
     <a href="/memories/<%= @memory.id %>/edit"> Edit Memory </a>
-    <br>
-    <br>
+        <br>
+        <br>
+
     <form class="" action="/memories/<%= @memory.id%>/delete" method="POST"> 
         <input type="hidden" name="_method" value="delete">
         <input type="submit" name="" value="Delete Memory">
-    <%end%>
+        <%end%>
     </form>

@@ -1,22 +1,19 @@
-<br>
-
+    <br>
 <h1>Shared Memories</h1>
-<br>
+    <br>
 
-<h2><a href="/categories"> Select by Category</a></h2>
-    <br>
-    <br>
-    <%@memory.each do |memory|%>
-    <h3> <a href="/memories/<%= memory.id%>"> <%= memory.title%> </a></h3>
-  
-    <img src="<%=memory.image_url%>"  photo height="150" width="150">
-        <br>
-    <h5> Date:<%= memory.date %> </h5>
-    <h5> Category: <%= memory.category.name%></h5>
+    <h2><a href="/categories"> Select by Category</a></h2>
         <br>
         <br>
-        <br>
-        
-    <%end%>
+        <%@memories.each do |memory|%>
+            <h3> <a href="/memories/<%= memory.id%>"> <%= memory.title%> </a></h3>
+            <img src="<%=memory.image_url%>"  photo height="150" width="150">
+            <br>
+            <h5> Date:<%= memory.date %> </h5>
+            <h5> Category: <%= memory.category.name%></h5>
+            <br>
+            <br>
+            <br>
+        <%end%>
 
 
